@@ -661,10 +661,10 @@ var require_settings_panel = __commonJS({
                 const json = JSON.parse(data);
                 resolve(json.isPro === true);
               } catch (e) {
-                resolve(false);
+                resolve(json.isPro === true);
               }
             });
-          }).on("error", () => resolve(false));
+          }).on("error", () => resolve(json.isPro === true));
         });
       }
       startPolling(userId) {
