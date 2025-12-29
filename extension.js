@@ -29,7 +29,7 @@ const HEARTBEAT_KEY = 'auto-accept-instance-heartbeat';
 const INSTANCE_ID = Math.random().toString(36).substring(7);
 
 let isEnabled = false;
-let isPro = false;
+let isPro = true;
 let isLockedOut = false; // Local tracking
 let pollFrequency = 2000; // Default for Free
 let bannedCommands = []; // List of command patterns to block
@@ -106,7 +106,7 @@ async function activate(context) {
     try {
         // 1. Initialize State
         isEnabled = context.globalState.get(GLOBAL_STATE_KEY, false);
-        isPro = context.globalState.get(PRO_STATE_KEY, false);
+        isPro = true;
 
         // Load frequency
         if (isPro) {
